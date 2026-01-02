@@ -14,6 +14,12 @@
 </head>
 
 <body>
+  <!-- ====== CONFIG ====== -->
+  <script>
+    // Update this if you ever change calendars
+    window.BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/zWIYg5f1zT2GORPKFug4";
+  </script>
+
   <!-- Ambient background -->
   <div class="bg" aria-hidden="true">
     <div class="grid"></div>
@@ -25,7 +31,7 @@
 
   <!-- Top nav -->
   <header class="nav" id="top">
-    <a class="brand" href="#top" aria-label="Realtor Bot Solutions">
+    <a class="brand" href="#top" aria-label="Realtor Bot Solutions home">
       <img src="Logo.png" alt="Realtor Bot Solutions" class="logo" />
       <span class="brandText">Realtor Bot Solutions</span>
     </a>
@@ -40,7 +46,7 @@
 
     <div class="ctas">
       <a class="btn ghost" href="#demo">See demo</a>
-      <a class="btn primary" href="#book">Book a call</a>
+      <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
     </div>
 
     <button class="burger" aria-label="Open menu" aria-expanded="false">
@@ -57,7 +63,7 @@
     <a href="#faq">FAQ</a>
     <div class="mobileCtas">
       <a class="btn ghost" href="#demo">See demo</a>
-      <a class="btn primary" href="#book">Book a call</a>
+      <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
     </div>
   </div>
 
@@ -83,7 +89,7 @@
           </p>
 
           <div class="heroBtns">
-            <a class="btn primary big" href="#book">Book a quick call</a>
+            <a class="btn primary big bookLink" href="#" target="_blank" rel="noopener">Book a quick call</a>
             <a class="btn ghost big" href="#features">Explore features</a>
           </div>
 
@@ -304,7 +310,7 @@
               <li>Basic qualification</li>
               <li>Simple booking flow</li>
             </ul>
-            <a class="btn ghost" href="#book">Book a call</a>
+            <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
           </div>
 
           <div class="price featured glass reveal">
@@ -321,7 +327,7 @@
               <li>Custom scripts + sequences</li>
               <li>Optimization + tweaks</li>
             </ul>
-            <a class="btn primary" href="#book">Book a call</a>
+            <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
           </div>
 
           <div class="price glass reveal">
@@ -336,7 +342,7 @@
               <li>Advanced reporting</li>
               <li>Priority support</li>
             </ul>
-            <a class="btn ghost" href="#book">Book a call</a>
+            <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
           </div>
         </div>
       </div>
@@ -349,44 +355,22 @@
           <h2>Want to see the flow?</h2>
           <p>I’ll show you the exact path a lead takes from inquiry → qualification → booking.</p>
           <div class="demoBtns">
-            <a class="btn primary" href="#book">Book a quick call</a>
+            <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a quick call</a>
             <a class="btn ghost" href="#features">Back to features</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BOOK -->
+    <!-- BOOK (simple CTA, no embed) -->
     <section id="book" class="section">
       <div class="container">
-        <div class="bookGrid">
-          <div class="bookLeft reveal">
-            <h2>Book a quick call</h2>
-            <p>
-              If you already have HighLevel set up, we can plug this in fast.
-              If not, we’ll build the pipeline + booking flow first.
-            </p>
-
-            <div class="checks glass">
-              <div>✅ Install fast once assets are ready</div>
-              <div>✅ Works with your current lead sources</div>
-              <div>✅ Can embed your GHL calendar right here</div>
-            </div>
-          </div>
-
-          <div class="bookRight glass reveal">
-            <h3>Schedule your call</h3>
-            <p class="muted">Choose a time that works for you.</p>
-
-            <div class="embed">
-              <iframe
-                title="Booking Calendar"
-                src="https://api.leadconnectorhq.com/widget/booking/zWIYg5f1zT2GORPKFug4"
-                style="width: 100%; border: none; overflow: hidden;"
-                scrolling="no"
-                loading="lazy">
-              </iframe>
-            </div>
+        <div class="demo glass reveal">
+          <h2>Book a quick call</h2>
+          <p>Pick a time that works — it opens in a new tab.</p>
+          <div class="demoBtns">
+            <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Open calendar</a>
+            <a class="btn ghost" href="#top">Back to top</a>
           </div>
         </div>
       </div>
@@ -403,7 +387,7 @@
         <div class="faq">
           <details class="glass reveal">
             <summary>Will this work with my existing GHL setup?</summary>
-            <div class="body">Yes. We keep GHL for backend automations and embed calendars/forms on this site.</div>
+            <div class="body">Yes. We keep GHL for backend automations and use your calendar link for bookings.</div>
           </details>
 
           <details class="glass reveal">
@@ -422,7 +406,7 @@
     <footer class="footer">
       <div class="container foot">
         <div>
-          <div class="brand mini" aria-label="Realtor Bot Solutions">
+          <div class="brand mini">
             <img src="Logo.png" alt="Realtor Bot Solutions" class="logo" />
             <span class="brandText">Realtor Bot Solutions</span>
           </div>
@@ -437,8 +421,17 @@
     </footer>
   </main>
 
-  <!-- GHL embed helper (required for auto-resize) -->
-  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+  <script>
+    // Make every .bookLink open your calendar URL (single source of truth)
+    (function () {
+      var url = window.BOOKING_URL || "#";
+      document.querySelectorAll(".bookLink").forEach(function (a) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+      });
+    })();
+  </script>
 
   <script src="app.js"></script>
 </body>
