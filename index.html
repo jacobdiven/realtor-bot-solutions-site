@@ -2,7 +2,7 @@
 <a href="#how">How</a>
 <a href="#proof">Proof</a>
 <a href="#pricing">Pricing</a>
-<a href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj" target="_blank" rel="noopener">Demo</a>
+<a href="#pricing">Demo</a>
 <a href="#faq">FAQ</a>
 </nav>
 
@@ -10,18 +10,13 @@
 <a href="#how">How</a>
 <a href="#proof">Proof</a>
 <a href="#pricing">Pricing</a>
-<a href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj" target="_blank" rel="noopener">Demo</a>
+<a href="#pricing">Demo</a>
 <a href="#faq">FAQ</a>
 
 <div class="mobileCtas">
-  <a class="btn ghost"
-     href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-     target="_blank" rel="noopener">
-     See demo
-  </a>
+  <a class="btn ghost" href="#demo">See demo</a>
 </div>
 
-<!-- PRICING / DEMO -->
 <section id="pricing" class="section">
   <div class="container">
     <div class="head reveal">
@@ -33,7 +28,6 @@
 
     <div class="pricing">
 
-      <!-- STARTER -->
       <div class="price glass reveal">
         <div class="pt">
           <h3>Starter</h3>
@@ -54,20 +48,10 @@
           <li>Missed-call text back + follow-up</li>
         </ul>
 
-        <a class="btn ghost"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           Book a call
-        </a>
-
-        <a class="btn primary"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           Book a demo
-        </a>
+        <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a demo</a>
       </div>
 
-      <!-- PRO -->
       <div class="price featured glass reveal">
         <div class="shine" aria-hidden="true"></div>
 
@@ -91,20 +75,10 @@
           <li>Ongoing tweaks + support</li>
         </ul>
 
-        <a class="btn primary"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           Book a call
-        </a>
-
-        <a class="btn ghost"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           See available times
-        </a>
+        <a class="btn primary bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">See available times</a>
       </div>
 
-      <!-- ELITE -->
       <div class="price glass reveal">
         <div class="pt">
           <h3>Elite</h3>
@@ -125,19 +99,19 @@
           <li>Reporting + optimization</li>
         </ul>
 
-        <a class="btn ghost"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           Book a call
-        </a>
-
-        <a class="btn ghost"
-           href="https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj"
-           target="_blank" rel="noopener">
-           Book a demo
-        </a>
+        <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">Book a call</a>
+        <a class="btn ghost bookLink" href="#" target="_blank" rel="noopener">Book a demo</a>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- BOOKING LINK FIX (DO NOT REMOVE) -->
+<script>
+  const BOOKING_URL = "https://api.leadconnectorhq.com/widget/booking/7xgt8dKn1iqi4cp24zTj";
+
+  document.querySelectorAll(".bookLink").forEach(link => {
+    link.href = BOOKING_URL;
+  });
+</script>
